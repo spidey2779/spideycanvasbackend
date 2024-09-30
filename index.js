@@ -4,10 +4,12 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 const app = express();
 const httpServer = createServer(app);
-app.use(cors({ origin: "https://spideycanvas.vercel.app/" }));
+app.use(cors({ origin: "https://spideycanvas.vercel.app" }));
+app.use(cors({ origin: "http://localhost:3000" }));
 const io = new Server(httpServer, {
   cors: {
-    origin: "https://spideycanvas.vercel.app/", // Set your client URL here if needed
+    origin: "https://spideycanvas.vercel.app", // Set your client URL here if needed
+    // origin: "http://localhost:3000", // Set your client URL here if needed
     methods: ["GET", "POST"],
   },
 });
